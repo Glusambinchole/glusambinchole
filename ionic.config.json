@@ -1,0 +1,7 @@
+{
+  "name": "gulcoapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
