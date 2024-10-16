@@ -1,0 +1,55 @@
+.konyol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cardd {
+    width: 340px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    align-items: center;
+}
+
+.baratas{
+    box-shadow: none;
+}
+
+.custom-icon {
+    padding-top: 20px;
+    padding-inline: 10px;
+    font-size: 24px; /* Ukuran ikon yang diinginkan */
+    height: 40px;
+    width: 45px;
+    color: black;
+}
+
+.buttonstyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%; /* Pastikan parent div ini menggunakan 100% */
+}
+
+ion-button.buttonstyle {
+    width: auto; /* Agar tombol tidak memenuhi seluruh lebar */
+}
+
+.itemstyle {
+    color: #928A8A; 
+    font-weight: bold; 
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.satuan {
+    font-size: 10px;
+    font-weight: bold;
+    color: #928A8A;
+    margin-left: 8px; /* Beri sedikit jarak dengan input */
+}

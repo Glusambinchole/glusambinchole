@@ -1,0 +1,64 @@
+<ion-header [translucent]="true" class="baratas">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="notifications-outline" class="custom-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <span style="margin-top: 20px;">Halo,User!</span>
+        <ion-icon name="person-circle-outline" class="custom-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="konyol">
+  <form>
+    <ion-card class="cardd">
+      <ion-card-header>
+        <ion-card-title style="text-align: center; color:#928A8A; font-weight: bold; font-size:15px;">Input Your Data</ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked" class="itemstyle">Glucose (mg/dL)</ion-label>
+          <ion-input type="number" placeholder=""></ion-input>
+          <div slot="end" class="satuan">mg/dL</div>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="stacked" class="itemstyle">Cholesterol (mg/dL)</ion-label>
+          <ion-input type="number" placeholder=""></ion-input>
+          <div slot="end" class="satuan">mg/dL</div>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="stacked" class="itemstyle">Uric Acid (mg/dL)</ion-label>
+          <ion-input type="number" placeholder=""></ion-input>
+          <div slot="end" class="satuan">mg/dL</div>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="stacked" class="itemstyle">Hemoglobin (g/dL)</ion-label>
+          <ion-input type="number" placeholder=""></ion-input>
+          <div slot="end" class="satuan">g/dL</div>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="stacked" class="itemstyle">Date</ion-label>
+          <ion-input [(ngModel)]="selectedDate" placeholder="" readonly name="date"></ion-input>
+          <ion-icon name="calendar-outline" slot="end" (click)="showDatePicker = true"></ion-icon>
+        </ion-item>
+  
+        <ion-datetime *ngIf="showDatePicker" [(ngModel)]="selectedDate" (ionChange)="dateChanged($event)" (ionCancel)="showDatePicker = false" [showDefaultButtons]="true" name="datePicker"></ion-datetime>
+  
+      </ion-card-content>
+    </ion-card>
+
+    <div class="buttonstyle">
+      <ion-button type="submit" color="secondary" class="buttonstyle">Enter</ion-button>
+    </div>
+  </form>
+</ion-content>

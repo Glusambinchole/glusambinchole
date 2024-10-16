@@ -1,1 +1,21 @@
+ion-tab-bar {
+    border-top: 1px solid #656464;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    height: 85px;
+}
 
+ion-tab-button {
+    background-color: #D9D9D9;   
+}
+
+/* Gaya untuk gambar ikon yang tidak aktif */
+ion-tab-button img {
+    opacity: 0.5; /* Opacity rendah untuk ikon tidak aktif */
+    transition: opacity 0.3s ease; /* Animasi transisi halus */
+}
+
+/* Gaya untuk gambar ikon yang aktif */
+ion-tab-button.tab-selected img {
+    opacity: 1; /* Opacity penuh untuk ikon aktif */
+}

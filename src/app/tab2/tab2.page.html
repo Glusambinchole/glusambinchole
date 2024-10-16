@@ -1,17 +1,131 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="baratas">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button >
+        <ion-icon   name="notifications-outline" class="custom-icon" ></ion-icon>
+      </ion-button>
+  </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button >
+        <span style="margin-top: 20px;">Halo,User!</span>
+        <ion-icon   name="person-circle-outline" class="custom-icon" ></ion-icon>
+      </ion-button>
+  </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+
+<ion-content [fullscreen] = "true">
+  
+
+  
+  <!-- Tampilkan jika data sudah lengkap -->
+  <div *ngIf="dataComplete && !isLoading">
+    <ion-tab-button class="button" (click)="connectDevice()">
+      <img src="assets/icon/Connect.svg" alt="Home Icon" />
+      <ion-label></ion-label>
+    </ion-tab-button>
+  
+    <div class="instruction-card">
+      <h2 style="text-align: center;">Instruksi Penggunaan</h2>
+      <p>1. Aktifkan Bluetooth pada ponsel.</p>
+      <p>2. Pastikan perangkat glusambinchole dalam mode deteksi.</p>
+      <p>3. Sambungkan dengan perangkat melalui aplikasi, pilih </p> 
+      <p>   Glusambinchole dan tunggu hingga tersambung.</p>
+    </div>
+  </div>
+
+  <!-- Tampilkan loading saat menghubungkan -->
+  <div *ngIf="isLoading && !connected">
+    <img src="assets/icon/connecting.png" alt="">
+    <span><img src="assets/icon/bluetoothHp.png" alt=""></span>
+    <h1>Menghubungkan Perangkat ....</h1>
+  </div>
+
+  <div *ngIf="userStruggling">
+    <h1 style="margin-top: 100px; text-align: center;">Mengalami Kesulitan?</h1>
+    <div class="button-container">
+      <button class="buttonstyle" [routerLink]="['/form']">Input Manual?</button>
+    </div>
+  </div>
+  
+  
+
+  <div *ngIf="connected && !uploading  && !data_uploaded" >
+    <div class="button-container">
+      <img src="assets/icon/connected.png" alt="">
+    </div>
+    <h1 style="margin-top: 150px;">Perangkat Terhubung</h1>
+    <div class="button-container">    
+      <button class="buttonstyle" (click)="dataUpload()">Pindai Sekarang</button>
+    </div>
+  </div>
+
+  <div *ngIf = "uploading  && !data_uploaded" >
+    <div class="loading-container">
+      <ion-item >
+        <ion-progress-bar [value]="progress/100" type="indeterminate" class="custom-loading-bar"></ion-progress-bar>
+        <ion-label>Menghubungkan Perangkat...</ion-label>
+      </ion-item>
+    </div>
+  </div>
+  <!--klo batal ke halaman awal-->
+
+  <div *ngIf = "data_uploaded">
+    <div class="container">
+      <ion-card  class="result-card">
+        <ion-card-header>
+          <ion-card-title style="text-align: center; font-family:'Poppins', sans-serif; font-weight: bold; margin-bottom:20px;">Result Data</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <div class="progress-bar-container">
+            <div class="label">
+                <span>Gula Darah</span>
+                <span class="value">115 mg/dl</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div> <!-- Gula Darah progress -->
+            </div>
+        </div>
+  
+        <div class="progress-bar-container">
+            <div class="label">
+                <span>Kolesterol</span>
+                <span class="value">10.5 mg/dl</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 20%;"></div> <!-- Kolesterol progress -->
+            </div>
+        </div>
+  
+        <div class="progress-bar-container">
+            <div class="label">
+                <span>Asam Urat</span>
+                <span class="value">7.2 mg/dl</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 60%;"></div> <!-- Asam Urat progress -->
+            </div>
+        </div>
+  
+        <div class="progress-bar-container">
+            <div class="label">
+                <span>Hemoglobin</span>
+                <span class="value">12.5 g/dl</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 50%;"></div> <!-- Hemoglobin progress -->
+            </div>
+        </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <a [routerLink]="['/diagnose']" style="display: flex; justify-content: center; align-items: center; color: #686868; text-decoration: underline; font-weight: bold;">
+      Diagnose</a>
+  </div>
+
+  
+  
 </ion-content>

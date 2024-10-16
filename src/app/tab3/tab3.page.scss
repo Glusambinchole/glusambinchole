@@ -1,0 +1,45 @@
+.progress-container {
+    padding: 10px 0;
+  }
+  
+  .stat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .label {
+    flex: 1;
+    font-weight: 500;
+    color: #4a4a4a;
+  }
+  
+  .progress {
+    flex: 2;
+    margin: 0 10px;
+  }
+  
+  .status {
+    flex: 1;
+    text-align: right;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  ion-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .baratas{
+    box-shadow: none;
+}
+
+.custom-icon {
+    padding-top: 20px;
+    padding-inline: 10px;
+    font-size: 24px; /* Ukuran ikon yang diinginkan */
+    height: 40px; /* Tinggi ikon */
+    width: 45px; /* Lebar ikon */
+    color: black;
+}

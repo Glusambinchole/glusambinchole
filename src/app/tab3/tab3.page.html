@@ -1,17 +1,88 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="baratas">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button >
+        <ion-icon   name="notifications-outline" class="custom-icon" ></ion-icon>
+      </ion-button>
+  </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button >
+        <span style="margin-top: 20px;">Halo,User!</span>
+        <ion-icon   name="person-circle-outline" class="custom-icon" ></ion-icon>
+      </ion-button>
+  </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <!-- Date Picker -->
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label>History</ion-label>
+      <ion-datetime-button datetime="filterDate"></ion-datetime-button>
+    </ion-item>
+    <ion-datetime 
+      id="filterDate" 
+      presentation="date" 
+      (ionChange)="onDateChange($event)">
+    </ion-datetime>
+  </ion-card>
+
+  <!-- Card Utama -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        {{ selectedDate ? 'History for ' + selectedDate : 'All History' }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Jika Tanggal Dipilih, Tampilkan Hanya Card Hari Itu -->
+      <ng-container *ngIf="selectedDate; else allHistory">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ selectedDate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="progress-container">
+              <div *ngFor="let stat of filteredStats" class="stat">
+                <div class="label">{{ stat.name }}</div>
+                <ion-progress-bar 
+                  [value]="stat.value" 
+                  [color]="getProgressColor(stat.status)">
+                </ion-progress-bar>
+                <div class="status">{{ stat.status }}</div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+
+      <!-- Template Semua History -->
+      <ng-template #allHistory>
+        <ng-container *ngFor="let item of history">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ item.date }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="progress-container">
+                <div *ngFor="let stat of item.stats" class="stat">
+                  <div class="label">{{ stat.name }}</div>
+                  <ion-progress-bar 
+                    [value]="stat.value" 
+                    [color]="getProgressColor(stat.status)">
+                  </ion-progress-bar>
+                  <div class="status">{{ stat.status }}</div>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ng-container>
+      </ng-template>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

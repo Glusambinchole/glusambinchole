@@ -1,0 +1,137 @@
+.instruction-card {
+    background: white;
+    padding: 20px;
+    border-top-right-radius: 45px;
+    border-top-left-radius: 45px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    color: #686868;
+    margin-top: 150px;
+    height: 400px;
+    position: fixed;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    color: #686868;
+
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+img{
+    margin-top: 200px;
+    height: 200px;
+    width: 200px;
+}
+
+.baratas{
+    box-shadow: none;
+}
+
+.custom-icon {
+    padding-top: 20px;
+    padding-inline: 10px;
+    font-size: 24px; /* Ukuran ikon yang diinginkan */
+    height: 40px; /* Tinggi ikon */
+    width: 45px; /* Lebar ikon */
+    color: black;
+}
+
+
+.buttonstyle{
+  background: linear-gradient(135deg, #24BAFE, #166F98); /* Gradasi biru */
+  color: white; /* Teks putih */
+  border: none; /* Menghapus border default */
+  border-radius: 30px; /* Membulatkan tombol */
+  padding: 10px 25px; /* Ukuran padding untuk tombol */
+  font-size: 16px; /* Ukuran teks */
+  font-weight: 500; /* Tebal teks sedang */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+  transition: transform 0.2s, box-shadow 0.2s; /* Animasi untuk hover */
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.button-container {
+    display: flex; /* Menggunakan flexbox untuk pengaturan layout */
+    justify-content: center; /* Mengatur agar item di dalamnya terpusat secara horizontal */
+    align-items: center; /* Mengatur agar item di dalamnya terpusat secara vertikal */
+  }
+
+.custom-loading-bar {
+    height: 20px; /* Mengatur tinggi progress bar */
+    width: 80%; /* Lebar progress bar */
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    --background: #d3d3d3; /* Background bar */
+    --progress-background: #32D501;
+    display: block;
+    position: rela
+    tive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Buat container setinggi layar */
+  }
+  
+.result-card{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 380px;
+    height: 450px;
+    align-items: center;
+}
+
+.progress-bar-container {
+    margin-bottom: 30px;
+}
+
+.label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 20px;
+    background-color: #0288d1;
+}
+
+.value {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+}
+
+
+
+

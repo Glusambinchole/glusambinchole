@@ -1,0 +1,17 @@
+ion-card {
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan */
+    overflow: hidden; /* Agar radius diterapkan pada konten di dalamnya */
+  }
+  
+  ion-card-content {
+    padding: 15px; /* Memberi padding agar kontennya lebih nyaman dilihat */
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #e0e0e0; /* Warna abu-abu ringan */
+    margin: 10px 0; /* Memberi jarak vertikal */
+    padding-inline: 10px;
+  }
+  
