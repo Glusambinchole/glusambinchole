@@ -15,74 +15,40 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <div class="history-container">
+    <ion-card>
+      <ion-card-content class="outer-card-content">
+        <div class="date-filter">
+          <ion-button fill="clear" (click)="toggleDatePicker()">
+            <ion-icon name="calendar" slot="end">{{ selectedDate ? (selectedDate | date: 'EEE, d MMM yyyy') : 'Select Date' }}</ion-icon>
+            <span>
+              
+            </span>
+          </ion-button>
+          <div *ngIf="showDatePicker">
+            <ion-datetime display-format="EEE, d MMM yyyy" [(ngModel)]="selectedDate"></ion-datetime>
+          </div>
+        </div>
 
-  <!-- Date Picker -->
-  <ion-card>
-    <ion-item lines="none">
-      <ion-label>History</ion-label>
-      <ion-datetime-button datetime="filterDate"></ion-datetime-button>
-    </ion-item>
-    <ion-datetime 
-      id="filterDate" 
-      presentation="date" 
-      (ionChange)="onDateChange($event)">
-    </ion-datetime>
-  </ion-card>
-
-  <!-- Card Utama -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        {{ selectedDate ? 'History for ' + selectedDate : 'All History' }}
-      </ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <!-- Jika Tanggal Dipilih, Tampilkan Hanya Card Hari Itu -->
-      <ng-container *ngIf="selectedDate; else allHistory">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>{{ selectedDate }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <div class="progress-container">
-              <div *ngFor="let stat of filteredStats" class="stat">
-                <div class="label">{{ stat.name }}</div>
-                <ion-progress-bar 
-                  [value]="stat.value" 
-                  [color]="getProgressColor(stat.status)">
-                </ion-progress-bar>
-                <div class="status">{{ stat.status }}</div>
+        <!-- History List with Scroll -->
+        <div class="history-list">
+          <div *ngFor="let item of filteredHistory" class="history-item">
+            <div>{{ item.date | date: 'EEE, d MMM' }}</div>
+            <div class="details">
+              <div class="item" *ngFor="let detail of item.details">
+                <span>{{ detail.name }}</span>
+                <ion-progress-bar [value]="detail.value" [color]="getBarColor(detail.status)"></ion-progress-bar>
+                <span>{{ detail.status }}</span>
               </div>
             </div>
-          </ion-card-content>
-        </ion-card>
-      </ng-container>
+          </div>
 
-      <!-- Template Semua History -->
-      <ng-template #allHistory>
-        <ng-container *ngFor="let item of history">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>{{ item.date }}</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <div class="progress-container">
-                <div *ngFor="let stat of item.stats" class="stat">
-                  <div class="label">{{ stat.name }}</div>
-                  <ion-progress-bar 
-                    [value]="stat.value" 
-                    [color]="getProgressColor(stat.status)">
-                  </ion-progress-bar>
-                  <div class="status">{{ stat.status }}</div>
-                </div>
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ng-container>
-      </ng-template>
-
-    </ion-card-content>
-  </ion-card>
-
+          <!-- No history message -->
+          <div *ngIf="!filteredHistory.length" class="no-history">
+            No history available
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

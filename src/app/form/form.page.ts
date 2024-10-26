@@ -8,6 +8,13 @@ import { Component } from '@angular/core';
 export class FormPage {
   selectedDate: string = '';
   showDatePicker: boolean = false;
+  formData = {
+    glucose: null,
+    cholesterol: null,
+    uricAcid: null,
+    hemoglobin: null,
+    selectedDate: null,
+  }
 
   constructor() {}
   dateChanged(event: any) {
@@ -15,5 +22,10 @@ export class FormPage {
     this.selectedDate = event.detail.value; // Simpan nilai dari event
     this.showDatePicker = false; // Sembunyikan date picker setelah tanggal dipilih
    }
+
+   submitData() {
+    console.log('Form Data:', this.formData);
+    // Tambahkan logika pengiriman data ke backend atau database di sini
+  }
 
 }

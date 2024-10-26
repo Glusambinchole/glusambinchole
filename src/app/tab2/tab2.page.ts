@@ -16,7 +16,7 @@ export class Tab2Page implements AfterViewInit {
   uploading: boolean = false;
   data_uploaded: boolean = false;
   progress: number=0;
-  dataComplete: boolean = true; // Atur ke true atau false sesuai kondisi awal
+  dataComplete: boolean = true; 
 
   chart: any;
 
@@ -39,26 +39,34 @@ export class Tab2Page implements AfterViewInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Data Tidak Lengkap',
-      message: 'Apakah Anda ingin melengkapi data sekarang?',
-      buttons: [
-        {
-          text: 'Tidak',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            console.log('Pengguna menolak untuk melengkapi data.');
-          }
-        }, {
-          text: 'Ya',
-          handler: () => {
-            this.completeData();
-          }
-        }
-      ]
-    });
+    cssClass: 'custom-alert', // Tambahkan kelas CSS untuk styling kustom
+    message: '', // Biarkan kosong dulu, kita isi nanti lewat manipulasi DOM
+  });
+
 
     await alert.present();
+    const alertElement = document.querySelector('ion-alert');
+    if (alertElement) {
+      alertElement.querySelector('.alert-message')!.innerHTML = `
+        <div class="alert-content">
+          <img src="assets/icon/identity.png" alt="Icon" class="alert-icon">
+          <h2>Silahkan Lengkapi Data Anda Terlebih Dahulu</h2>
+          <a href="#" class="alert-link" >
+          <span class="link-prefix">Pergi ke</span>
+          <span class="link-highlight" id="myPageLink">My Page</span>
+          </a>        
+        </div>
+      `;
+
+      const myPageLink = document.getElementById('myPageLink');
+      if (myPageLink) {
+      myPageLink.addEventListener('click', (event) => {
+        event.preventDefault(); // Mencegah reload halaman
+        this.completeData(); // Panggil fungsi untuk melanjutkan pengisian data
+      });
+    }
+
+    }
   }
 
   completeData() {

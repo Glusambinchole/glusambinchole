@@ -1,3 +1,70 @@
+/* Wrapper alert sementara */
+ion-content{
+  font-family: 'Poppins','sans-serrif';
+}
+
+.temporary-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background semi-transparan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: visible; /* Tampil saat pertama kali */
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+  }
+  
+  /* Konten alert */
+  .alert-content {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    width: 80%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Gambar di atas teks */
+  .alert-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  /* Teks utama */
+  .alert-content h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+  }
+  
+  /* Link dengan hover effect */
+  .alert-link {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .alert-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Sembunyikan alert saat ditutup */
+  .temporary-alert.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+  }
+  
+
 .instruction-card {
     background: white;
     padding: 20px;
@@ -8,13 +75,14 @@
     max-width: 500px;
     text-align: left;
     color: #686868;
-    margin-top: 150px;
-    height: 400px;
+    padding: 15px;
     position: fixed;
+    bottom: 0; /* Menempatkan elemen di bagian bawah */
+    left: 0; /* Menempatkan elemen dari sisi kiri */
+    right: 0; /* Menempatkan elemen dari sisi kanan */
 }
 
 h1 {
-    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 15px;
     text-align: center;
@@ -23,19 +91,14 @@ h1 {
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 100;
 }
 
-img{
-    margin-top: 200px;
-    height: 200px;
-    width: 200px;
-}
 
 .baratas{
     box-shadow: none;
+
 }
 
 .custom-icon {
@@ -45,6 +108,8 @@ img{
     height: 40px; /* Tinggi ikon */
     width: 45px; /* Lebar ikon */
     color: black;
+    font-family: 'Poppins','sans-serrif';
+
 }
 
 
@@ -60,7 +125,6 @@ img{
   transition: transform 0.2s, box-shadow 0.2s; /* Animasi untuk hover */
   border: none;
   outline: none;
-  font-family: 'Poppins', sans-serif;
 
 }
 
@@ -70,18 +134,7 @@ img{
     align-items: center; /* Mengatur agar item di dalamnya terpusat secara vertikal */
   }
 
-.custom-loading-bar {
-    height: 20px; /* Mengatur tinggi progress bar */
-    width: 80%; /* Lebar progress bar */
-    max-width: 400px;
-    margin: 0 auto;
-    border-radius: 20px;
-    --background: #d3d3d3; /* Background bar */
-    --progress-background: #32D501;
-    display: block;
-    position: rela
-    tive;
-}
+
 
 .container {
     display: flex;
@@ -132,6 +185,37 @@ img{
     text-align: right;
 }
 
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Elemen diatur vertikal */
+    height: 100vh; /* Agar container memenuhi layar */
+    text-align: center; /* Untuk merapikan teks di tengah */
+    gap: 10px; /* Jarak antar-elemen */
+    transform: translateY(50%);
+}
+
+ion-progress-bar.custom-loading-bar {
+    --progress-height: 20px; /* Tinggi progress bar */
+    width: 80%; /* Mengatur lebar progress bar */
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    --background: #d3d3d3;
+    --progress-background: #32D501;
+    position: relative;
+}
 
 
+.connectimg{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+}
+
+.connectbtn{
+    padding-top: 30%;
+}
 

@@ -1,0 +1,49 @@
+.header{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+
+
+ion-content{
+    --background: linear-gradient(to bottom right, #014D6F, #0193D5);
+}
+
+.status-card {
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .status-card .card-item {
+    --padding-start: 0px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .normal {
+    --background-color: #eafff1;
+  }
+  
+  .attention {
+    --background-color: #fff8dc;
+  }
+  
+  .warning {
+    --background-color: #ffe4e4;
+  }
+  
+  ion-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+  
+  ion-label h2 {
+    font-size: 1rem;
+    color: gray;
+  }
+  
+  ion-label h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  

@@ -11,6 +11,7 @@
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
@@ -38,8 +39,64 @@
 
 :root {
     --background-color: #F2F5FA;
+    --font-family: 'Poppins';
+
   }
 
   ion-app {
     background-color: var(--background-color);
+    font-family: var(--font-family);
+
   }
+
+/* Wrapper untuk alert */
+.custom-alert .alert-wrapper {
+  border-radius: 16px;
+  background-color: white;
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Gambar di atas teks */
+.alert-content .alert-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+/* Teks utama */
+.alert-content h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #4a4a4a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Link 'Pergi ke My Page' */
+.alert-link {
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+/* Gaya untuk teks 'Pergi ke' */
+.link-prefix {
+  color: #4a4a4a;
+}
+
+/* Gaya khusus untuk 'My Page' */
+.link-highlight {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: underline;
+}

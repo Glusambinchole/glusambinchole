@@ -17,13 +17,12 @@
 
 
 <ion-content [fullscreen] = "true">
-  
 
   
   <!-- Tampilkan jika data sudah lengkap -->
   <div *ngIf="dataComplete && !isLoading">
     <ion-tab-button class="button" (click)="connectDevice()">
-      <img src="assets/icon/Connect.svg" alt="Home Icon" />
+      <img src="assets/icon/Connect.svg" alt="Home Icon" class="connectbtn" />
       <ion-label></ion-label>
     </ion-tab-button>
   
@@ -32,14 +31,16 @@
       <p>1. Aktifkan Bluetooth pada ponsel.</p>
       <p>2. Pastikan perangkat glusambinchole dalam mode deteksi.</p>
       <p>3. Sambungkan dengan perangkat melalui aplikasi, pilih </p> 
-      <p>   Glusambinchole dan tunggu hingga tersambung.</p>
+      <p>   Glusambinchole dan tunggu hingga tersambung $.</p>
     </div>
   </div>
 
   <!-- Tampilkan loading saat menghubungkan -->
   <div *ngIf="isLoading && !connected">
-    <img src="assets/icon/connecting.png" alt="">
-    <span><img src="assets/icon/bluetoothHp.png" alt=""></span>
+    <ion-row class="connectimg">
+      <img src="assets/icon/connecting.png" alt="">
+      <img src="assets/icon/bluetoothHp.png" alt="">
+    </ion-row>
     <h1>Menghubungkan Perangkat ....</h1>
   </div>
 
@@ -64,10 +65,14 @@
 
   <div *ngIf = "uploading  && !data_uploaded" >
     <div class="loading-container">
-      <ion-item >
-        <ion-progress-bar [value]="progress/100" type="indeterminate" class="custom-loading-bar"></ion-progress-bar>
-        <ion-label>Menghubungkan Perangkat...</ion-label>
-      </ion-item>
+      <ion-col size="12">
+        <ion-progress-bar 
+          [value]="progress / 100" 
+          type="indeterminate" 
+          class="custom-loading-bar">
+        </ion-progress-bar>
+        <ion-label>Scanning...</ion-label>
+      </ion-col>
     </div>
   </div>
   <!--klo batal ke halaman awal-->
@@ -76,7 +81,7 @@
     <div class="container">
       <ion-card  class="result-card">
         <ion-card-header>
-          <ion-card-title style="text-align: center; font-family:'Poppins', sans-serif; font-weight: bold; margin-bottom:20px;">Result Data</ion-card-title>
+          <ion-card-title style="text-align: center; font-weight: bold; margin-bottom:20px;">Result Data</ion-card-title>
         </ion-card-header>
       
         <ion-card-content>
@@ -88,9 +93,9 @@
             <div class="progress-bar">
                 <div class="progress" style="width: 75%;"></div> <!-- Gula Darah progress -->
             </div>
-        </div>
+          </div>
   
-        <div class="progress-bar-container">
+          <div class="progress-bar-container">
             <div class="label">
                 <span>Kolesterol</span>
                 <span class="value">10.5 mg/dl</span>
@@ -98,7 +103,7 @@
             <div class="progress-bar">
                 <div class="progress" style="width: 20%;"></div> <!-- Kolesterol progress -->
             </div>
-        </div>
+          </div>
   
         <div class="progress-bar-container">
             <div class="label">
