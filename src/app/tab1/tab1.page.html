@@ -1,17 +1,98 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="baratas">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="notifications-outline" class="custom-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <span style="margin-top: 20px; font-family: 'Poppins';">Halo, User!</span>
+        <ion-icon name="person-circle-outline" class="custom-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="background">
+  <div class="kotak">
+    <p>Recent Data</p>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <!-- Jika tidak ada data, tampilkan pesan atau indikator loading -->
+    <div *ngIf="healthRecords.length === 0">
+      <p>Tidak ada data yang tersedia saat ini.</p>
+    </div>
+
+    <!-- Loop hanya satu kali untuk setiap record jika data ada -->
+    <div *ngFor="let record of healthRecords" class="data-record">
+      
+      <!-- Glucose Data -->
+      <div class="data-item" *ngIf="record.glukosa">
+        <span class="data-name">Glucose</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" [style.width.%]="(record.glukosa / 200) * 100"></div>
+          </div>
+          <span class="status">{{ record.glukosa > 100 ? 'High' : 'Normal' }}</span>
+        </div>
+      </div>
+
+      <!-- Cholesterol Data -->
+      <div class="data-item" *ngIf="record.kolestrol">
+        <span class="data-name">Cholesterol</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" [style.width.%]="(record.kolestrol / 300) * 100"></div>
+          </div>
+          <span class="status">{{ record.kolestrol > 200 ? 'High' : 'Normal' }}</span>
+        </div>
+      </div>
+
+      <!-- Uric Acid Data -->
+      <div class="data-item" *ngIf="record.asam_urat">
+        <span class="data-name">Uric Acid</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" [style.width.%]="(record.asam_urat / 10) * 100"></div>
+          </div>
+          <span class="status">{{ record.asam_urat > 7 ? 'High' : 'Normal' }}</span>
+        </div>
+      </div>
+
+      <!-- Hemoglobin Data -->
+      <div class="data-item" *ngIf="record.hemoglobin">
+        <span class="data-name">Hemoglobin</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" [style.width.%]="(record.hemoglobin / 20) * 100"></div>
+          </div>
+          <span class="status">{{ record.hemoglobin < 12 ? 'Low' : 'Normal' }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bagian untuk Weekly Average -->
+  <div class="weekly-average">
+    <p>Weekly Average</p>
+    <div class="average-container">
+      <div class="average-box">
+        <span class="atas">{{ getAverage('glukosa') }}</span>
+        <span class="bawah">Glucose</span>
+      </div>
+      <div class="average-box">
+        <span class="atas">{{ getAverage('kolestrol') }}</span>
+        <span class="bawah">Cholesterol</span>
+      </div>
+      <div class="average-box">
+        <span class="atas">{{ getAverage('asam_urat') }}</span>
+        <span class="bawah">Uric Acid</span>
+      </div>
+      <div class="average-box">
+        <span class="atas">{{ getAverage('hemoglobin') }}</span>
+        <span class="bawah">Hemoglobin</span>
+      </div>
+    </div>
+  </div>
 </ion-content>

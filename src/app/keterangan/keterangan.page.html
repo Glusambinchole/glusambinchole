@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-row>
+      <img src="assets/icon/arrow-left.png" alt="" (click)="goBack()">
+      <ion-card-title style="margin-left: 110px; margin-right: 110px; color: white ; font-size: medium;">Keterangan</ion-card-title>
+    </ion-row>
+  </div>
+  <ion-grid class>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="status-card normal" style="margin-top: 20px;">
+          <ion-card-content>
+            <ion-item lines="none" class="card-item">
+              <img src="assets/icon/hijaubesar.png" slot="start" alt="">
+              <ion-label>
+                <h2>Status Kesehatan</h2>
+                <h3>Normal</h3>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-card class="status-card attention">
+          <ion-card-content>
+            <ion-item lines="none" class="card-item">
+              <img src="assets/icon/kuningbesar.png" slot="start" alt="">
+              <ion-label>
+                <h2>Status Kesehatan</h2>
+                <h3>Perlu Diperhatikan</h3>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-card class="status-card warning">
+          <ion-card-content>
+            <ion-item lines="none" class="card-item">
+              <img src="assets/icon/merahbesar.png" slot="start" alt="">
+              <ion-label>
+                <h2>Status Kesehatan</h2>
+                <h3>Waspada</h3>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

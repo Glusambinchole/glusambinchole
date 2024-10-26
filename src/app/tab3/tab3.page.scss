@@ -1,35 +1,10 @@
-.progress-container {
-    padding: 10px 0;
-  }
-  
-  .stat {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  
-  .label {
-    flex: 1;
-    font-weight: 500;
-    color: #4a4a4a;
-  }
-  
-  .progress {
-    flex: 2;
-    margin: 0 10px;
-  }
-  
-  .status {
-    flex: 1;
-    text-align: right;
-    font-size: 14px;
-    color: #888;
-  }
-  
-  ion-card {
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+ion-content{
+  font-family: 'Poppins','sans-serrif';
+}
+
+ion-card{
+  box-shadow: none;
+}
 
   .baratas{
     box-shadow: none;
@@ -42,4 +17,52 @@
     height: 40px; /* Tinggi ikon */
     width: 45px; /* Lebar ikon */
     color: black;
+}
+
+
+.history-container {
+  padding: 1rem;
+  box-shadow: 6px 6px 6px rgba(0, 0.2, 0, 0.5);
+  border-radius: 30px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  gap: 1rem;
+
+}
+
+.history-item {
+  background: #dedede;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+ion-progress-bar {
+  flex: 1;
+  margin: 0 10px;
 }

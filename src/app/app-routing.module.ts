@@ -17,8 +17,14 @@ const routes: Routes = [
   {
     path: 'diagnose',
     loadChildren: () => import('./diagnose/diagnose.module').then( m => m.DiagnosePageModule)
-  }
+  },
+  {
+    path: 'keterangan',
+    loadChildren: () => import('./keterangan/keterangan.module').then( m => m.KeteranganPageModule)
+  },
+
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
